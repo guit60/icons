@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>icons grid</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/modal.css">
+    <script type="text/javascript" src="js/script.js"></script>
+</head>
+
+<body>
+    <header>
+        <div id="logo">
+            <a href="#">Logo</a>
+        </div>
+        <nav>
+            <ul id="menu">
+                <li><a href="#" class="active">item 1</a></li>
+                <li><a href="#">item 2</a></li>
+                <li><a href="#">item 3</a></li>
+                <li><a href="#">item 4</a></li>
+                <li><a href="#">item 5</a></li>
+                <li><a href="#">item 6</a></li>
+            </ul>
+        </nav>
+        <div id="search">
+            <form action="" method="get">
+                <input type="text" name="search" value="">
+                <input type="submit" value="search">
+            </form>
+        </div>
+    </header>
+    <dialog id="mydialog" close>
+        <div class="content"></div>
+        <div class="boutons"><button onclick="$dialog.close()">Fermer</button></div>
+    </dialog>
+    <main>
+        <div class="grid-container">
+            <div id="item_1" class="grid-item">
+                <img src="img/svg/square-i solid.svg">
+                <span>square-i solid</span>
+            </div>
+            <div id="item_2" class="grid-item">
+                <img src="img/svg/square-i regular.svg">
+                <span>square-i regular</span>
+            </div>
+            <div id="item_3" class="grid-item">
+                <img src="img/svg/square-i light.svg">
+                <span>square-i light</span>
+            </div>
+            <div id="item_4" class="grid-item">
+                <img src="img/svg/square-i thin.svg">
+                <span>square-i thin</span>
+            </div>
+            <div id="item_5" class="grid-item">
+                <img src="img/svg/circle-i solid.svg">
+                <span>circle-i solid</span>
+            </div>
+            <div id="item_6" class="grid-item">
+                <img src="img/svg/circle-i regular.svg">
+                <span>circle-i regular</span>
+            </div>
+        </div>
+    </main>
+</body>
+
+</html>

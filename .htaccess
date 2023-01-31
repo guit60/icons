@@ -1,0 +1,6 @@
+RewriteEngine on
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule .+ /icons/index.php [L]
+
+SetEnv SESSION_USE_TRANS_SID 0

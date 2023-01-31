@@ -1,0 +1,67 @@
+<html>
+<head>
+<title>myByways SVG to PNG Converter</title>
+</head>
+<body bgcolor="#E6E6FA">
+ <h1><a href="http://mybyways.com/blog/convert-svg-to-png-using-your-browser">myByways SVG to PNG Converter</a></h1>
+ <textarea id="t" rows="8" cols="70"></textarea><br/><br/>
+ <button id="l">Load SVG</button><br/><br/>
+ <div id="d"><svg width="24" height="24" viewBox="0 0 24 24" fill-rule="evenodd">
+    <path d="M12 1.2l10.5 5.7L12 12.8 1.5 7.1 12 1.2zM12 0c-.2 0-.4.1-.6.2L.4 6.3c-.6.4-.6 1.2 0 1.5l11 6c.2.1.4.1.5.1.2 0 .4-.1.6-.2l11-6.1c.6-.4.6-1.2 0-1.6l-11-6H12z"></path>
+    <path d="M12.1 18.9c-.3 0-.5-.1-.8-.2L.7 12.8c-.5-.2-.7-.7-.7-1.1 0-.5.2-.9.7-1.2l.6-.4c.2-.2.5-.1.7.1.2.2.1.5-.1.7l-.6.4c-.3.1-.3.3-.3.4 0 .1 0 .2.2.3l10.6 5.9c.2.1.4.1.6 0l10.5-6c.2-.1.2-.3.2-.3 0-.1 0-.2-.2-.3l-.6-.3c-.2-.1-.4-.4-.2-.7.1-.2.4-.3.7-.2l.5.3c.5.3.7.7.7 1.2s-.2.9-.7 1.2l-10.5 6c-.2 0-.5.1-.7.1z"></path>
+    <path d="M12.1 24c-.3 0-.5-.1-.8-.2L.7 17.9c-.5-.2-.7-.7-.7-1.2s.2-.9.7-1.2l.6-.4c.2-.2.5-.1.7.1.1.3 0 .6-.2.8l-.6.4c-.2.1-.2.3-.2.3 0 .1 0 .2.2.3l10.6 5.9c.2.1.4.1.6 0l10.5-6c.2-.1.2-.3.2-.3 0-.1 0-.2-.2-.3l-.6-.3c-.2-.1-.4-.4-.2-.7.1-.2.4-.3.7-.2l.5.3c.5.3.7.7.7 1.2s-.2.9-.7 1.2l-10.5 6c-.2.1-.5.2-.7.2z"></path>
+   </svg></div><br/>
+ Width: <input id="w" type="number" max="9999"></input>
+ Height: <input i   d="h" type="number" max="9999"></input><br/>
+ <button id="s">Save SVG as PNG</button><br/><br/>
+ <canvas id="c"></canvas>
+
+
+
+
+<script>
+/* SVG to PNG (c) 2017 CY Wong / myByways.com */
+var text = document.getElementById('t');
+text.wrap = 'off';
+var svg = null;
+var width = document.getElementById('w');
+var height = document.getElementById('h'); 
+
+document.getElementById('l').addEventListener('click', function () {
+  var div = document.getElementById('d');
+  div.innerHTML= text.value;
+  svg = div.querySelector('svg');
+  width.value = svg.getBoundingClientRect().width;
+  height.value = svg.getBoundingClientRect().height;
+});
+document.getElementById('s').addEventListener('click', function () {
+  var canvas = document.getElementById('c');
+  svg.setAttribute('width', width.value);
+  svg.setAttribute('height', height.value);
+  canvas.width = width.value;
+  canvas.height = height.value;
+  var data = new XMLSerializer().serializeToString(svg);
+  var win = window.URL || window.webkitURL || window;
+  var img = new Image();
+  var blob = new Blob([data], { type: 'image/svg+xml' });
+  var url = win.createObjectURL(blob);
+
+
+  img.onload = function () {
+    canvas.getContext('2d').drawImage(img, 0, 0);
+    win.revokeObjectURL(url);
+    var uri = canvas.toDataURL('image/png').replace('image/png', 'octet/stream');
+    var a = document.createElement('a');
+    document.body.appendChild(a);
+    a.style = 'display: nx@x@one';
+    a.href = uri
+    a.download = (svg.id || svg.svg.getAttribute('name') || svg.getAttribute('aria-label') || 'untitled') + '.png';
+    a.click();
+    window.URL.revokeObjectURL(uri);
+    document.body.removeChild(a);
+  };
+  img.src = url;
+});
+</script>
+</body>
+</html>

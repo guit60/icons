@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Calque_2" data-name="Calque 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+  <defs>
+    <style>
+      .cls-1 {
+        stroke-width: 2px;
+      }
+
+      .cls-1, .cls-2 {
+        fill: none;
+        stroke: #000;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+      }
+
+      .cls-2 {
+        stroke-width: 3px;
+      }
+    </style>
+  </defs>
+  <path d="M12,4c4.41,0,8,3.59,8,8s-3.59,8-8,8-8-3.59-8-8,3.59-8,8-8m0-2h0C6.48,2,2,6.48,2,12h0c0,5.52,4.48,10,10,10h0c5.52,0,10-4.48,10-10h0c0-5.52-4.48-10-10-10h0Z"/>
+  <polyline class="cls-1" points="12 17 12 11 10 11"/>
+  <line class="cls-1" x1="10" y1="17" x2="14" y2="17"/>
+  <line class="cls-2" x1="12" y1="7.5" x2="12" y2="7.5"/>
+</svg>

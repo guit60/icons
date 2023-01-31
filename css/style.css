@@ -1,0 +1,201 @@
+:root {
+    --coul-flash: yellow;
+    --gris-clair: #ececec;
+    --gris-fonce: gray;
+}
+* {
+    color: black;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 12pt;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: var(--gris-clair);
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+}
+/************ HEADER ************/
+
+header {
+    background-color: white;
+    margin-bottom: 40px;
+    box-shadow: 0px 0px 10px gray;
+}
+
+
+/************ LOGO ************/
+
+#logo {
+    margin: 20px;
+    float: left;
+}
+
+#logo a {
+    font-size: 18px;
+    font-weight: 800;
+    text-decoration: none;
+}
+
+
+/************ NAV ************/
+
+nav {
+    display: inline-block;
+    margin-top: 20px;
+}
+
+
+/************ MENU ************/
+
+#menu {
+    display: flex;
+}
+
+#menu li {
+    flex-direction: row;
+    list-style-type: none;
+}
+
+#menu li>a {
+    text-decoration: none;
+    padding: 10px 20px;
+}
+
+#menu a:hover {
+    transition: .3s;
+    background-color: var(--gris-clair);
+}
+
+#menu a:active {
+    background-color: var(--coul-flash);
+}
+
+#menu a.active {
+    text-decoration-line: line-through;
+    text-decoration-thickness: 0.2rem;
+    text-decoration-color: black;
+}
+
+
+/************ SEARCH ************/
+
+#search {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    display: flex;
+}
+
+#search form {
+    margin: auto;
+}
+
+#search input[name="search"] {
+    line-height: 40px;
+}
+
+#search input[type="submit"] {
+    height: 40px;
+}
+
+
+/************ MAIN ************/
+
+main {
+    width: 768px;
+    margin: auto;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    column-gap: 1rem;
+    row-gap: 1rem;
+    margin: 0 1rem;
+}
+
+.grid-item {
+    padding: 40px;
+    box-shadow: none;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: white;
+}
+
+.grid-item:hover {
+    transition: .5s;
+    background-color: var(--coul-flash);
+}
+
+.grid-item img {
+    width: 48px;
+}
+
+.grid-item span {
+    padding-top: 20px;
+}
+
+.content {
+    display: flex;
+}
+
+#mydialog .visuel {
+    border: 1px solid #000;
+    margin-right: 1rem;
+}
+
+#mydialog .bt_close {
+    float: right;
+    cursor: pointer;
+    display: inline-block;
+}
+
+#mydialog .bt_close img {
+    width: 36px;
+    cursor: pointer;
+}
+#mydialog .bts button{
+    padding: 6px 15px;
+    color: var(--gris-clair);
+    background-color: var(--gris-fonce);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+#mydialog .bts button:hover{
+    color: white;
+}
+#mydialog .bts button:active{
+    background-color: var(--coul-flash);
+    color: var(--gris-fonce);
+}
+.content :where(.visuel img, .texte) {
+    width: 200px;
+}
+
+@media all and (max-width: 768px) {
+    nav {
+        display: none;
+    }
+    main {
+        width: 768px;
+    }
+    .grid-container {
+        grid-template-columns: auto auto auto;
+    }
+}
+
+@media all and (max-width: 480px) {
+    main {
+        width: 100%;
+    }
+    .grid-container {
+        grid-template-columns: auto auto;
+    }
+}
